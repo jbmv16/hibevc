@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JB Calculator</title>
+	</head>
+	<body>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: ;
+			
+			
+		}
+		body {
+			background: #3b4664;
+		
+		}
+		.all {
+			
+			
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+		}
+		.calculator {
+	
+			
+			
+		}
+		.but {
+			background-color: #252d44;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: rgba(0,0,0,0.25) 10px 10px 10px;
+		}
+		.calculator form input {
+			border: 0;
+			outline: 0;
+			width: 63px;
+			height: 40px;
+			border-radius: 5px;
+			font-weight: bold;
+			font-size: 27px;
+			color: black;
+			cursor: pointer;
+			margin: 10px;
+			
+		}
+		.fls {
+			
+		}
+		form .display {
+			display: flex;
+			justify-content: flex-end;
+			margin: 10px -9.9px;
+			
+		}
+		form .display input {
+			text-align: right;
+			flex: 1;
+			border-radius: 5px;
+			color: white;
+			font-size: 40px;
+			box-shadow: none;
+			width: 100px;
+			height: 80px;
+			padding: 20px 20px;
+			background-color: #181f32;
+			box-shadow: rgba(0,0,0,0.25) 10px 8px 10px;
+		}
+		#displays {
+		
+		
+		}
+		form input.reset {
+			background-color: blue;
+			width: 150px;
+			font-size: 18px;
+			color: white;
+			
+		}
+		form input.equal {
+			background-color: red;
+			width: 150px;
+			font-size: 18px;
+			color: white;
+			
+			
+		}
+		form input.del {
+			background-color: blue;
+			font-size: 18px;
+			color: white;
+			width: 65px;
+			height: 41px;
+			
+			
+			
+		}
+		.fls {
+			display: flex;
+		}
+		.dels {
+			margin-top: -1px;
+			margin-left: 2px;
+		}
+		#nine {
+			margin-left: 15px;
+		}
+		#eight {
+			margin-left: 14px;
+		}
+		
+		h1 {
+			font-family: arial;
+			font-size: 30px;
+			
+			color: white;
+			margin-top: 13px;
+			
+		}
+		.theme {
+			
+		}
+		.head {
+			display: flex;
+			margin-top: 50px;
+			margin-left: 330px;
+		}
+		.darkmode {
+			background-color: black;
+			
+		}
+		label {
+			position: absolute;
+			height: 35px;
+			width: 75px;
+			border-radius: 20px;
+			cursor: pointer;
+			border: 3px solid;
+			margin-left: 290px;
+			background-color: #252d44;
+			top: 62px;
+			border: none;
+				box-shadow: rgba(0,0,0,0.25) 1px 5px 10px;
+		}
+		label:before {
+			box-shadow: rgba(0,0,0,2) 1px 1px 10px;
+			position: absolute;
+			left: 9px;
+			top: 5px;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			cursor: pointer;
+			background: red;
+			content: "";
+			transition: 0.4s;
+			
+			
+		}
+		label.active:before{
+			left: 43px;
+			background-color; white;
+			background: red;
+			box-shadow: rgba(0,0,0,2) 1px 1px 10px;
+			
+		}
+		body.night {
+			background: black;
+			color: white;
+		}
+		form .but input {
+				box-shadow: rgba(0,0,0,1) 1px 4px 5px;
+		}
+	</style>
+	<div class = "head">
+		<h1 id = "h">JB's Calculator</h1>
+		
+		<label id = "dark-change" ></label>
+	</div>
+	
+	<div class = "all">
+	
+		<div class = "calculator">
+			<form>
+				<div class = "display">
+					<input type = "text" name = "display" id = "displays">
+				</div>
+				
+				<div class = "but">
+					<div class = "fls">
+						<input type = "button"  id = "seven" value = "7" onclick = "display.value += '7'">
+						<input type = "button"  id = "eight" value = "8" onclick = "display.value += '8'">
+						
+						<input type = "button" id = "nine" value = "9" onclick = "display.value += '9'">
+					<div class = "dels">
+						<input type = "button" value = "DEL" class = "del" onclick = "display.value = display.value.toString().slice(0,-1)">
+					</div>
+					</div>
+					<div class = "fl">
+						<input type = "button" value = "4" onclick = "display.value += '4'">
+						<input type = "button" value = "5" onclick = "display.value += '5'">
+						<input type = "button" value = "6" onclick = "display.value += '6'">
+						<input type = "button" value = "+" onclick = "display.value += '+'">
+					</div>
+					<div class = "fl">
+						<input type = "button" value = "1" onclick = "display.value += '1'">
+						<input type = "button" value = "2" onclick = "display.value += '2'">
+						<input type = "button" value = "3" onclick = "display.value += '3'">
+						<input type = "button" value = "-" onclick = "display.value += '-'">
+					</div>
+					<div class = "fl">
+						<input type = "button" value = "." onclick = "display.value += '.'">
+						<input type = "button" value = "0" onclick = "display.value += '0'">
+						<input type = "button" value = "/" onclick = "display.value += '/'">
+						<input type = "button" value = "x" onclick = "display.value += '*'">
+						
+					</div>
+					<div class = "fl">
+						<input type = "button" value = "RESET" onclick = "display.value = ''" class = "reset">
+						<input type = "button" value = "=" onclick = "display.value = eval(display.value)" class = "equal">
+					</div>
+				</div>
+			</form>
+		
+		</div>
+	
+	</div>
+	
+	
+	
+	<script>
+	
+			//var theme = document.body;
+			//theme.classList.toggle("darkmode");
+			
+			var content = document.getElementsByTagName('body')[0];
+			var darkMode = document.getElementById('dark-change');
+			darkMode.addEventListener('click', function(){
+				darkMode.classList.toggle('active');
+				content.classList.toggle('night');
+			})
+			
+			//var hi = document.getElementById("theme");
+			
+			//hi.style.backgroundColor = "white";
+		
+	
+	</script>
+	</body>
+
+</html>

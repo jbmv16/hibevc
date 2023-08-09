@@ -1,0 +1,592 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>JB PORFOLIO</title>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	</head>
+	<body onLoad="renderTime();">
+		<style>
+		html {
+			scroll-behavior: smooth;
+		}
+		::-webkit-scrollbar {
+			width: 12px;
+	
+		}
+		::-webkit-scrollbar-thumb {
+			background: linear-gradient(transparent, #00c6ff);
+			border-radius: 10px;
+		}
+		::-webkit-scrollbar-thumb:hover {/*00c6ff*/
+			background: linear-gradient(transparent, red);/*30ff00*/
+	
+		}
+
+		body {
+			background-color: black;
+			margin: auto 0;
+		}
+		@keyframes zoomIn {
+			0% {
+				transform: scale(0);
+				opacity: 0;
+			} 
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
+		
+		}
+		@keyframes floatImage {
+			0% {
+				transform: translateY(0);
+				
+			} 
+			50%  {
+				transform: translateY(-19px);
+				
+			}
+			100%  {
+				transform: translateY(0);
+			
+			}
+		
+		}
+		#pic {
+			width:700px;
+			height: 750px;
+			float: right;
+			margin-left: -600px;
+			margin-top: 250px;
+			animation: zoomIn 5s ease forwards, floatImage 4s ease-in-out infinite;
+			//animation-delay: 2s, 3s;
+		}
+		@keyframes slideInleft {
+			from {
+				transform: translateX(-200px);
+				opacity: 0;
+			} 
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		#h {
+			color: white;
+			font-size: 70px;
+			font-family: arial;
+			margin-top: 90px;
+			margin-left: 120px;
+			letter-spacing: 6px;
+			animation: slideInleft 1s ease forwards;
+			/*
+			animation-name: slideInleft;
+			animation-duration: 1s;
+			animation-timing-function: ease-in;
+			animation-delaty: 1s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-fill-mode: forwards;*/
+		}
+		#span {
+			color: red;
+		}
+		nav {
+			display: flex;
+		}
+		@keyframes slideTop {
+			0% {
+				transform: translateY(-200px);
+				opacity: 0;
+			} 
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		ul, li {
+			
+			list-style: none;
+			display: inline-block;
+			font-size: 35px;
+			font-family: arial;
+			letter-spacing: 0.5px;
+			float: right;
+			margin-left: 100px;
+			margin-top: 57px;
+			animation: slideTop 1s ease forwards;
+			animation-delay: calc(2s * var(--i));
+		
+		
+		}
+		
+		a {
+			color: white;
+			text-decoration: none;
+		
+		}
+		.navbar a {
+			padding-right: 20px;
+		}
+		
+		.navbar a:hover {
+			
+			color: red;
+			opacity: 99%;
+		}
+		#sub {
+			background-color: red;
+			border-radius: 40px;
+			color: white;
+			padding:20px 25px;
+			font-family: arial;
+			font-size: 40px;
+			cursor: pointer;
+			transition: transform 3s ease 1s;
+			animation: slideTop 1s ease forwards;
+			margin-left: 1600px;
+			margin-top: -150px;
+		}
+
+		#sub:hover {
+			
+			opacity: 98%;
+			transform: translateY(-10px);
+		}
+	
+		#hello {
+			font-size: 55px;
+			font-family: arial;
+			color: white;
+			margin-left: 120px;
+			margin-top: 180px;
+			animation: slideTop 1s ease forwards;
+		}
+		#name {
+			font-family: arial;
+			letter-spacing: 1px;
+			font-size: 88px;
+			color: white;
+			margin-left: 124px;
+			margin-top: 10px;
+			animation: slideInleft 1s ease forwards;
+		}
+		section {
+			height: 100vh;
+			display: flex;
+			width: 100%;
+		}
+		#stspage {
+			background-color: #1F2045;//5CF4FF
+		}	
+		#latest {
+			font-size: 65px;
+			font-family: arial;
+			color: white;	
+			margin-left: 800px;
+			margin-top: 150px;
+			
+		}
+		.project {
+			
+		}
+		#ndpage{
+			background-color: #191919;
+			
+		}
+		.stpage{
+			
+			
+		}
+		#spantwo {
+			color: #0ef;
+		
+		}
+		#iam {
+			font-size: 55px;
+			font-family: arial;
+			color: white;
+			margin-left: 120px;
+			margin-top: -40px;
+			
+		}
+		.loading {
+	position: absolute;
+
+}
+.loading:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: -50px;
+	width: 3px;
+	height: 100%;
+	background-color: white;
+	animation: blinkCursor 0.8s steps(3) infinite;
+
+}
+
+@keyframes blinkCursor {
+	0%, 75% {
+		opacity: 1;
+	}
+	76%, 100% {
+		opacity: 0;
+	}
+}
+.loading span, h2 {
+	white-space: nowrap;
+	font-size: 59px;
+	margin-left: 20px;
+	margin-top: 5px;
+	animation: typing 11s steps(40) infinite;
+	overflow: hidden;
+	
+}
+@keyframes typing {
+	0%, 90%, 100% {
+		width: 270;
+	}
+	30%, 60% {
+		width: 719.88px;
+	}
+}	
+		.about-me {
+			text-align: center;
+			margin-top: 150px;
+		}
+		#about {
+			color: white;
+			font-size: 70;
+			font-family: arial;
+			margin-right: 1040px;
+			margin-top: 40px;
+			animation: slideTop 1s ease forwards;
+		}
+		#web {
+			color: #0ef;
+			font-size: 45;
+			font-family: arial;
+			margin-right: 1040px;
+			margin-top: -20px;
+			animation: slideTop 1s ease forwards;
+		}
+		@keyframes slideright {
+			from {
+				transform: translateX(200px);
+				opacity: 0;
+			} 
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		@keyframes slideleft {
+			from {
+				transform: translateX(-200px);
+				opacity: 0;
+			} 
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		#p {
+			color: white;
+			font-size: 33;
+			letter-spacing: 3px;
+			line-height: -2px;
+			font-family: arial;
+			margin-top: 50px;
+			margin-left: 620px;
+			text-align: justify;
+			animation: slideTop 1s ease forwards;
+			
+		}
+		#webpic {
+			height: 740px;
+			width: 520px;
+			float: left;
+			margin-left: 60px;
+			margin-top: 55px;
+			animation: slideInleft 1s ease forwards, floatImage 4s ease-in-out infinite;
+		}
+		
+		#rdpage {
+			background-color: #2F333BS;
+		}
+		#contact {
+			color: white;
+			font-size: 77px;
+			font-family: arial;
+			margin-left: 215px;
+			margin-top: 200px;
+			animation: slideTop 1s ease forwards;
+		}
+		.con {
+			animation: slideleft 1s ease forwards;
+		}
+		#loc {
+			
+			color: white;
+			font-size: 35px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 100px;
+			letter-spacing: 5px;
+		}
+		#mail {
+			color: white;
+			font-size: 35px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 60px;
+			letter-spacing: 5px;
+			
+		}
+		#num {
+			color: white;
+			font-size: 35px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 60px;
+			let
+			ter-spacing: 5px;
+		}
+		#download {
+			color: white;
+			font-size: 32px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 60px;
+			letter-spacing: 2px;
+			width: 400px;
+			border-radius: 20px;
+			height: 100px;
+			background-color: red;
+			cursor: pointer;
+			padding: ;
+			font-weight: bold;			
+		}
+		#download:hover {
+			opacity: 95%;
+		}
+		form {
+			margin-left: 300px;
+		}
+		#input-name {
+			width: 900px;
+			height: 80px;
+			background-color: white;
+			letter-spacing: 2px;
+			margin-top: 210px;
+			color: black;
+			border-radius: 10px;
+			font-size: 30px;
+			font-family: arial;
+			text-indent: 2px;
+			padding: 20px 20px;
+			outline: none;
+			animation: slideright 1s ease forwards;
+		}
+		
+		#input-email {
+			width: 900px;
+			height: 80px;
+			background-color: white;
+			letter-spacing: 2px;
+			margin-top: 50px;
+			color: black;
+			border-radius: 10px;
+			font-size: 30px;
+			font-family: arial;
+			text-indent: 2px;
+			padding: 20px 20px;
+			outline: none;
+			animation: slideright 1s ease forwards;
+		}
+
+		#input-message {
+			animation: slideright 1s ease forwards;
+			width: 900px;
+			height: 280px;
+			background-color: white;
+			padding: 20px 2px;
+			letter-spacing: 2px;
+			//word-break: break-all;
+			margin-top: 50px;
+			color: black;
+			border-radius: 10px;
+			font-size: 30px;
+			font-family: arial;
+			outline: none;
+			text-indent: 20px;
+			line-height: -100px;
+			
+		}
+		
+		#submit {
+			color: white;
+			font-size: 36px;
+			font-family: arial;
+			padding: 20px 80px;
+			padding-top: 18px;
+			padding-right: px;
+			padding-left: 80px;
+			margin-top: 50px;
+			letter-spacing: 2px;
+			width: 330px;
+			border-radius: 20px;
+			height: 80px;
+			background-color: red;
+			cursor: pointer;
+			padding: ;
+			font-weight: bold;	
+			animation: slideright 1s ease forwards;
+		}
+		#submit:hover {
+			opacity: 95%;
+		}
+		#clockDisplay {
+			color: white;
+			font-size: 37px;
+			font-family: arial;
+			margin-left: 123px;
+			margin-top: -40px;
+		}
+		</style>
+	<section class = "stpage">
+		
+	<div class = "navbar" >
+	
+		
+	<nav>
+	<h1 id = "h" >Portfo<span id = "span">lio</span></h1>
+		<ul>
+			
+			<li><a href = "#rdpage" style = "--i:1;">Contact</a></li>
+			<li><a href = "#ndpage" style = "--i:2;">About</a></li>	
+			<li><a href = "#stspage" style = "--i:2;">Projects</a></li>
+			<li><a href = "" style = "--i:3;">Home</a></li>
+		</ul>
+	
+	</nav>
+	 <div id="clockDisplay"></div>
+	
+	
+	
+	<button id = "sub">Subscribe</button>
+	
+	<div class = "one" >
+		<h2 id = "hello">Hello, it's me</h2>
+		<h1 id = "name"><span id = "span">JB</span> Villegas</h1>
+		<div class 	= "loading">
+		<h2 id = "iam" >And I'm a <span id = "spantwo">Web Developer</span></h2>
+		</div>
+	</div>
+	</div>
+	<div class = "pic">
+	<img src = "jbs.png" id = "pic"></img>
+	</div>
+	</section>
+	<section id = "stspage">
+	<div class = "project" data-aos="fade-down" data-aos-delay = "100" data-aos-duration = "1000">
+		<h1 id = "latest" >Latest <span id = "span">Projects</span></h1>
+	</div>	
+	</section>
+	<!--2nd-->
+	<section id = "ndpage">
+		<div class = "about-me" data-aos="fade-down" data-aos-delay = "100" data-aos-duration = "1000">
+			<img src = "webdev.jpeg" id = "webpic"></img>	
+			<h1 id = "about">About Me</h1>
+			<h1 id = "web">Web developer</h2>
+			
+			<p id = "p">Hi, I'm a freelance web developer. I have a passion for creating dynamic <br>and visually appealing websites that provide a seamless user experience.<br> I have had the opportunity to work on diverse projects, ranging from personal <br>blogs to e-commerce platforms and corporate websites. My expertise lies in <br>front-end development, where I specialize in HTML, CSS, and JavaScript. I <br>have a keen eye for design and enjoy collaborating with clients to bring their <br>visions to life. I strive to create websites that not only look stunning but also<br> function flawlessly across different devices and browsers. As a freelance<br> web developer, I possess in-depth knowledge and proficiency in backend <br>development, specifically in PHP and SQL. With my expertise in PHP, I can<br> build robust server-side applications and web services. Whether it's developing<br> custom content management systems, building APIs for seamless integration<br> with other systems, or creating complex web applications, PHP enables me to<br> handle the server-side logic efficiently.</p>
+				
+		</div>
+	
+	</section>
+	<div data-aos="fade-down" data-aos-delay = "100" data-aos-duration = "1000">
+	<section id = "rdpage">
+
+		<div class = "con" data-aos="slide-right" data-aos-delay = "100" data-aos-duration = "1000">
+			<h1 id = "contact">Contact <span id = "span">Me</span></h1>
+			<h1 id = "loc">Sta Mesa, Manila</h1>
+			<h1 id = "mail">hi@gmail.com</h1>
+			<h1 id = "num">09615850411</h1>
+			<button id = "download">Download Resume</button>
+		</div>
+		
+		<form>
+			<input type = "text" id = "input-name" placeholder = "Name" name = "names">
+			<input type = "email" id = "input-email" placeholder = "Email" name = "email">
+			<textarea id = "input-message" placeholder = "Messages"></textarea>
+			
+			<input type = "submit" id = "submit" value = "Submit" name = "message">
+			
+		</form>	
+		
+	</section>
+	</div>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<script>
+		function renderTime(){
+
+    // Date
+    var mydate = new Date();
+    var year = mydate.getYear();
+        if(year < 1000){
+            year +=1900;
+        }
+    var day = mydate.getDay();
+    var month = mydate.getMonth();
+    var daym = mydate.getDate();
+    var dayarray = new Array("Sunday,","Monday,","Tuesday,","Wednesday,","Thursday,","Friday,","Saturday,");
+    var montharray = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+    //Date End
+	
+	// span
+	const span = document.createElement('span');
+    //Time
+    var currentTime = new Date();
+    var h = currentTime.getHours();
+    var m = currentTime.getMinutes();
+    var s = currentTime.getSeconds();
+        if(h == 24){
+            h = 0;
+        } else if(h > 12){
+            h = h - 0;
+        }
+
+        if(h < 10){
+            h = "0" + h;
+        }
+
+        if(m < 10){
+            m = "0" + m;
+        }
+
+        if(s < 10){
+            s = "0" + s;
+        }
+		
+        var myClock = document.getElementById("clockDisplay");
+        myClock.textContent = "" +dayarray[day] + " " +daym+ " " +montharray[month]+ " " +year+ " | " +h+ ":" +m+ ":" +s;
+        myClock.innerText = "" +dayarray[day]+ " " +daym+ " " +montharray[month]+ " " +year+ " | " +h+ ":" +m+ ":" +s;
+
+        setTimeout("renderTime()", 1000);
+		
+
+}
+renderTime();
+	</script>
+	</body>
+</html>

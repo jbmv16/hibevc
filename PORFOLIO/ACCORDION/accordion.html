@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ACCORDION</title>
+</head>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Arial';
+	}
+	.wrapper {
+		width: 180vh;
+		height: 100vh;
+		background-color: #e8f0f7;
+		display: flex;
+		justify-content: center;
+
+	}
+	.accordion {
+		width: 600px;
+		margin: 120px 0;
+		list-style: none;
+	}
+	.accordion li {
+		box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+		padding: 12px;
+		border-radius: 7px;
+		font-size: 17px;
+		margin-bottom: 10px;
+	}
+	.accordion li label {
+		padding: 12px;
+		color: #c20000;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.accordion li label::after {
+		content: '+';
+		font-size: 23px;
+	}
+	.answer {
+		overflow: hidden;
+		height: 0;
+		transition: .5s;
+	}
+	.radio:checked ~ .answer {
+		height: 110px;
+	}
+	.radio {
+		display: none;
+	}
+	.radio:checked ~ label::after {
+		content: '-';
+	}
+</style>
+<body>
+	<div class="wrapper">
+		<ul class="accordion">
+			<li>
+				<input type="radio" id="option1" name="accordion" class = "radio">
+				<label for="option1">What is faith?</label>
+				<div class="answer">
+					Believing to the things unseen and knowing that it is real. Faith is something we need to have connection with God.
+				</div>
+			</li>
+			<li>
+				<input type="radio" id="option2" name="accordion" class = "radio">
+				<label for="option2">What is faith?</label>
+				<div class="answer">
+					Believing to the things unseen and knowing that it is real. Faith is something we need to have connection with God.
+				</div>
+			</li>
+			<li>
+				<input type="radio" id="option3" name="accordion" class = "radio">
+				<label for="option3">What is faith?</label>
+				<div class="answer">
+					Believing to the things unseen and knowing that it is real. Faith is something we need to have connection with God.
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>

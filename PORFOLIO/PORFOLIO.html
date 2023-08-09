@@ -1,0 +1,836 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>JB PORFOLIO</title>
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+	</head>
+	<body onLoad="renderTime();">
+		<style>
+		html {
+			scroll-behavior: smooth;
+		}
+		::-webkit-scrollbar {
+			width: 12px;
+	
+		}
+		::-webkit-scrollbar-thumb {
+			background: linear-gradient(transparent, #00c6ff);
+			border-radius: 10px;
+		}
+		::-webkit-scrollbar-thumb:hover {/*00c6ff*/
+			background: linear-gradient(transparent, red);/*30ff00*/
+	
+		}
+
+		body {
+			background-color: black;
+			margin: auto 0;
+		}
+		@keyframes zoomIn {
+			0% {
+				transform: scale(0);
+				opacity: 0;
+			} 
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
+		
+		}
+		@keyframes floatImage {
+			0% {
+				transform: translateY(0);
+				
+			} 
+			50%  {
+				transform: translateY(-19px);
+				
+			}
+			100%  {
+				transform: translateY(0);
+			
+			}
+		
+		}
+		#pic {
+			width:700px;
+			height: 750px;
+			float: right;
+			margin-left: 500px;
+			margin-top: 250px;
+			animation: zoomIn 5s ease forwards, floatImage 4s ease-in-out infinite;
+			//animation-delay: 2s, 3s;
+		}
+		@keyframes slideInleft {
+			from {
+				transform: translateX(-200px);
+				opacity: 0;
+			} 
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		#h {
+			color: white;
+			font-size: 70px;
+			font-family: arial;
+			margin-top: 90px;
+			margin-left: 120px;
+			letter-spacing: 6px;
+			animation: slideInleft 1s ease forwards;
+			/*
+			animation-name: slideInleft;
+			animation-duration: 1s;
+			animation-timing-function: ease-in;
+			animation-delaty: 1s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-fill-mode: forwards;*/
+		}
+		#span {
+			color: red;
+		}
+		nav {
+			display: flex;
+			margin-left: -1350px;
+		}
+		a:hover {
+			color: red;
+		
+		}
+		@keyframes slideTop {
+			0% {
+				transform: translateY(-200px);
+				opacity: 0;
+			} 
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		
+		ul, li {
+			
+			list-style: none;
+			display: inline-block;
+			font-size: 35px;
+			font-family: arial;
+			letter-spacing: 0.5px;
+			float: right;
+			margin-left: 120px;
+			margin-top: 55px;
+			animation: slideTop 1s ease forwards;
+			animation-delay: calc(2s * var(--i));
+		
+		
+		}
+		
+		a {
+			color: white;
+			text-decoration: none;
+		
+		}
+		.navbar a {
+			padding-right: 20px;
+		}
+		
+		.navbar a:hover {
+			
+			color: red;
+			opacity: 99%;
+		}
+		
+	
+		#hello {
+			font-size: 55px;
+			font-family: arial;
+			color: white;
+			margin-left: 120px;
+			margin-top: 180px;
+			animation: slideTop 1s ease forwards;
+		}
+		#name {
+			font-family: arial;
+			letter-spacing: 1px;
+			font-size: 88px;
+			color: white;
+			margin-left: 124px;
+			margin-top: 10px;
+			animation: slideInleft 1s ease forwards;
+		}
+		section {
+			height: 100vh;
+			display: flex;
+			width: 100%;
+		}
+		#stspage {
+			background-color: #1F2045;//5CF4FF
+		}	
+		#latest {
+			font-size: 65px;
+			font-family: arial;
+			color: white;	
+			margin-left: 800px;
+			margin-top: 150px;
+			
+		}
+		.project {
+			
+		}
+		.slide-box {
+			width: 1600px;
+			margin: 0 auto;
+			overflow: hidden;
+			margin-left: 220px;
+			
+		}
+
+		.cards-container {
+			display: flex;
+			width: max-content;
+			transition: transform 0.9s ease;
+	
+		}
+
+		.card {
+			
+			box-shadow: rgba(0,0,0,0.5) 0px 7px 10px;
+			width: 500px;
+			height: 650px;
+			background-color: #f1f1f1;
+			margin-right: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: bold;
+			font-size: 18px;
+			transition: transform 0.5s ease-in-out;
+			background: linear-gradient(to bottom, rgba(0, 176, 155,0.5), rgba(150, 201, 61, 1));
+			
+		}
+		.card:hover {
+			transform: translateY(20px);
+			
+		}
+		
+			
+		.hi {
+			margin-top: 100px;
+		}
+		.prev-button{
+			widht: 170px;
+			height: 170px;
+			margin-top: -450px;
+			cursor: pointer;
+			margin-left: 10px;
+		}
+		
+		.next-button{
+			widht: 100px;
+			height: 100px;
+			margin-top: -410px;
+			margin-left:1885px;
+			left: 10%;
+			cursor: pointer;
+			
+		}
+		.prev-button:hover,  
+		.next-button:hover  {
+			opacity: 80%;
+		}
+		
+		#calculator {
+			width: 400px;
+			height: 390px;
+			border-radius: 50%;
+			margin-top: 40px;
+			
+			box-shadow: rgba(0,0,0,2) 1px 1px 10px;
+			margin-left: 50px;
+		}
+		#card1 {
+			display: block;
+			
+		}
+		#card1:hover {
+			background-color: lightblue;
+		}
+		#cardh {
+			margin-top: 30px;
+			text-align: center;
+			font-family: arial;
+			font-size: 43px;
+			color: white;
+			font-weight: bold;
+			
+		}
+		.btn {
+			background-color: blue;
+			padding: 1rem 1rem;
+			width: 15px;
+			height: 1px;
+			font-family: arial;
+			font-size: 27px;
+			border-radius: 20px;
+			color: white;
+			margin-left: 170px;
+		}
+		.btn:hover {
+			opacity: 80%;
+		}
+		
+		#ndpage{
+			background-color: #191919;
+			
+		}
+		
+		.stpage{
+			
+			
+		}
+		#spantwo {
+			color: #0ef;
+		
+		}
+		#iam {
+			font-size: 55px;
+			font-family: arial;
+			color: white;
+			margin-left: 120px;
+			margin-top: -40px;
+			
+		}
+		.loading {
+			position: absolute;
+
+		}
+		.loading:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin-top: -50px;
+			width: 3px;
+			height: 100%;
+			background-color: white;
+			animation: blinkCursor 0.8s steps(3) infinite;
+
+		}
+
+		@keyframes blinkCursor {
+			0%, 75% {
+				opacity: 1;
+			}
+			76%, 100% {
+				opacity: 0;
+			}
+		}
+		.loading span, h2 {
+			white-space: nowrap;
+			font-size: 59px;
+			margin-left: 20px;
+			margin-top: 5px;
+			animation: typing 11s steps(40) infinite;
+			overflow: hidden;
+	
+		}
+		@keyframes typing {
+			0%, 90%, 100% {
+				width: 270;
+			}
+			30%, 60% {
+				width: 719.88px;
+			}
+		}	
+		.about-me {
+			text-align: center;
+			margin-top: 150px;
+		}
+		#about {
+			color: white;
+			font-size: 70;
+			font-family: arial;
+			margin-right: 1040px;
+			margin-top: 40px;
+			animation: slideTop 1s ease forwards;
+		}
+		#web {
+			color: #0ef;
+			font-size: 45;
+			font-family: arial;
+			margin-right: 1040px;
+			margin-top: -20px;
+			animation: slideTop 1s ease forwards;
+		}
+		@keyframes slideright {
+			from {
+				transform: translateX(200px);
+				opacity: 0;
+			} 
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		@keyframes slideleft {
+			from {
+				transform: translateX(-200px);
+				opacity: 0;
+			} 
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		
+		}
+		#p {
+			color: white;
+			font-size: 33;
+			letter-spacing: 3px;
+			line-height: -2px;
+			font-family: arial;
+			margin-top: 50px;
+			margin-left: 620px;
+			text-align: justify;
+			animation: slideTop 1s ease forwards;
+			
+		}
+		#webpic {
+			height: 740px;
+			width: 520px;
+			float: left;
+			margin-left: 60px;
+			margin-top: 55px;
+			animation: slideInleft 1s ease forwards, floatImage 4s ease-in-out infinite;
+		}
+		
+		#rdpage {
+			background-color: #2F333BS;
+		}
+		#contact {
+			color: white;
+			font-size: 77px;
+			font-family: arial;
+			margin-left: 215px;
+			margin-top: 200px;
+			animation: slideTop 1s ease forwards;
+		}
+		.con {
+			animation: slideleft 1s ease forwards;
+		}
+		#loc {
+			
+			color: white;
+			font-size: 35px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 100px;
+			letter-spacing: 5px;
+		}
+		#mail {
+			color: white;
+			font-size: 35px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 60px;
+			letter-spacing: 5px;
+			
+		}
+		#num {
+			color: white;
+			font-size: 35px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 60px;
+			let
+			ter-spacing: 5px;
+		}
+		#download {
+			color: white;
+			font-size: 32px;
+			font-family: arial;
+			margin-left: 230px;
+			margin-top: 60px;
+			letter-spacing: 2px;
+			width: 400px;
+			border-radius: 20px;
+			height: 100px;
+			background-color: red;
+			cursor: pointer;
+			padding: ;
+			font-weight: bold;			
+		}
+		#download:hover {
+			opacity: 95%;
+		}
+		form {
+			margin-left: 300px;
+		}
+		#input-name {
+			width: 900px;
+			height: 80px;
+			background-color: white;
+			letter-spacing: 2px;
+			margin-top: 210px;
+			color: black;
+			border-radius: 10px;
+			font-size: 30px;
+			font-family: arial;
+			text-indent: 2px;
+			padding: 20px 20px;
+			outline: none;
+			animation: slideright 1s ease forwards;
+		}
+		
+		#input-email {
+			width: 900px;
+			height: 80px;
+			background-color: white;
+			letter-spacing: 2px;
+			margin-top: 50px;
+			color: black;
+			border-radius: 10px;
+			font-size: 30px;
+			font-family: arial;
+			text-indent: 2px;
+			padding: 20px 20px;
+			outline: none;
+			animation: slideright 1s ease forwards;
+		}
+
+		#input-message {
+			animation: slideright 1s ease forwards;
+			width: 900px;
+			height: 280px;
+			background-color: white;
+			padding: 20px 2px;
+			letter-spacing: 2px;
+			//word-break: break-all;
+			margin-top: 50px;
+			color: black;
+			border-radius: 10px;
+			font-size: 30px;
+			font-family: arial;
+			outline: none;
+			text-indent: 20px;
+			line-height: -100px;
+			
+		}
+		
+		#submit {
+			color: white;
+			font-size: 36px;
+			font-family: arial;
+			padding: 20px 80px;
+			padding-top: 18px;
+			/
+			padding-left: 80px;
+			margin-top: 50px;
+			letter-spacing: 2px;
+			width: 330px;
+			border-radius: 20px;
+			height: 80px;
+			background-color: red;
+			cursor: pointer;
+			padding: ;
+			font-weight: bold;	
+			animation: slideright 1s ease forwards;
+		}
+		#submit:hover {
+			opacity: 95%;
+		}
+		#clockDisplay {
+			color: white;
+			font-size: 37px;
+			font-family: arial;
+			margin-left: 123px;
+			margin-top: -40px;
+		}
+	@media(max-width: 1000px){
+   
+    
+    {
+    
+    }
+    
+		</style>
+	<section class = "stpage">
+		
+	<div class = "navbar" >
+	
+	<h1 id = "h" >Portfo<span id = "span">lio</span></h1>	
+	
+	 <div id="clockDisplay"></div>
+	
+	
+	
+	
+	<div class = "one" >
+		<h2 id = "hello">Hello, it's me</h2>
+		<h1 id = "name"><span id = "span">JB</span> Villegas</h1>
+		<div class 	= "loading">
+		<h2 id = "iam" >And I'm a <span id = "spantwo">Web Developer</span></h2>
+		</div>
+	</div>
+	</div>
+	<div class = "pic">
+	<img src = "jbs.png" id = "pic"></img>
+	</div>
+	<nav>
+	
+		<ul>
+			
+			<li><a href = "#rdpage" style = "--i:1;">Contact</a></li>
+			<li><a href = "#ndpage" style = "--i:2;">About</a></li>	
+			<li><a href = "#stspage" style = "--i:2;">Projects</a></li>
+			<li><a href = "" style = "--i:3;">Home</a></li>
+		</ul>
+	
+	</nav>
+	</section>
+	<section id = "stspage">
+	<div class = "project" >
+		<h1 id = "latest" >Latest <span id = "span">Projects</span></h1>
+	
+	
+	<div class = "hi">
+	
+		<div class="slide-box">
+	
+  <div class="cards-container">
+	
+    <div class="card" id = "card1">
+		<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">CALCULATOR</h1>
+		<a href = "JB CALCULATOR.html" class = "btn">Click Here</a>
+	</div>
+    <div class="card" id = "card1">
+		<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">TIC TAC TOE</h1>
+		<a href = "tictactoe.html" class = "btn">Click Here</a>
+	</div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Window Lock Screen</h1>
+		<a href = "Laptop Lockscreen/lockscreen.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Snake Game</h1>
+		<a href = "Snake game/snakegame.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Flappy Bird Game</h1>
+		<a href = "Flappy Bird/flappybird.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Jollibee login</h1>
+		<a href = "LOG IN/login.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Chat bot</h1>
+		<a href = "CHATBOT/chatbot.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Password Validation</h1>
+		<a href = "PASSWORD VALIDATION/passwordvalidation.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Music Player</h1>
+		<a href = "MUSIC PLAYER/musicplayer.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Music Player 2</h1>
+		<a href = "MUSIC PLAYER 2/musicplayer2.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Accordion</h1>
+		<a href = "ACCORDION/accordion.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Tooltiphover</h1>
+		<a href = "TOOLTIPHOVER/tooliphover.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">File Download</h1>
+		<a href = "ANY DOWNLOAD FILE/anyfiledownload.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Drawing App</h1>
+		<a href = "DRAWING APP/drawingapp.html" class = "btn">Click Here</a>
+    </div>
+    <div class="card" id = "card1">
+    	<img src = "code.png" id = "calculator"></img>
+		<h1 id = "cardh">Weather App</h1>
+		<a href = "WEATHER APP/weatherapp.html" class = "btn">Click Here</a>
+    </div>
+    
+
+    <div class="card" id = "card4">Car
+    d 4</div>
+    <div class="card" id = "card5">Card 5</div>
+	
+  </div>
+  </div>
+  <div class = "left">
+		<img src = "left.png" class = "prev-button" ></img>
+	</div>
+		</div>
+<div class = "right">
+		 <img src = "right.png" class = "next-button" ></img>
+	</div>
+
+	</div>
+	</div>
+	</section>
+	<!--2nd-->
+	<section id = "ndpage">
+		<div class = "about-me" >
+			<img src = "webdev.jpeg" id = "webpic"></img>	
+			<h1 id = "about">About Me</h1>
+			<h1 id = "web">Web developer</h2>
+			
+			<p id = "p">Hi, I'm a freelance web developer. I have a passion for creating dynamic <br>and visually appealing websites that provide a seamless user experience.<br> I have had the opportunity to work on diverse projects, ranging from personal <br>blogs to e-commerce platforms and corporate websites. My expertise lies in <br>front-end development, where I specialize in HTML, CSS, and JavaScript. I <br>have a keen eye for design and enjoy collaborating with clients to bring their <br>visions to life. I strive to create websites that not only look stunning but also<br> function flawlessly across different devices and browsers. As a freelance<br> web developer, I possess in-depth knowledge and proficiency in backend <br>development, specifically in PHP and SQL. With my expertise in PHP, I can<br> build robust server-side applications and web services. Whether it's developing<br> custom content management systems, building APIs for seamless integration<br> with other systems, or creating complex web applications, PHP enables me to<br> handle the server-side logic efficiently.</p>
+				
+		</div>
+	
+	</section>
+	<div >
+	<section id = "rdpage">
+		
+		<div class = "con" >
+	
+			<h1 id = "contact">Contact <span id = "span">Me</span></h1>
+			<h1 id = "loc">Sta Mesa, Manila</h1>
+			<h1 id = "mail">hi@gmail.com</h1>
+			<h1 id = "num">09615850411</h1>
+			<button id = "download">Download Resume</button>
+		</div>
+		
+		<form>
+			<input type = "text" id = "input-name" placeholder = "Name" name = "names" required>
+			<input type = "text" id = "input-email" placeholder = "Email" name = "email" required>
+			<textarea id = "input-message" placeholder = "Messages" required></textarea>
+			
+			<button id="submit" onclick="sendEmail()">Submit</button>
+			
+			
+		</form>	
+		
+	</section>
+	</div>
+
+	<script>
+const prevButton = document.querySelector(".prev-button");
+const nextButton = document.querySelector(".next-button");
+const cardsContainer = document.querySelector(".cards-container");
+//const hi = document.querySelector("#input-name");
+
+function sendEmail() {
+let name = document.getElementById("input-name").value;
+let email = document.getElementById("input-email").value;
+let messages = document.getElementById("input-message").value;
+
+let hi = "Send Successfully"
+let body = "Name:" + name + "<br/> Email:" + email + "<br/> Messages:" + messages;
+
+	Email.send({
+   	SecureToken : "9eb048cd-6cc8-43c2-87ce-0de88f6a1282",
+    To : 'jbenedictm14@gmail.com',
+    From : "jbenedictm14@gmail.com",
+    Subject : "message from contact form",
+    Body : body
+}).then(
+  message => alert(hi)
+);
+}
+
+
+const cardWidth = document.querySelector(".card").offsetWidth;
+let currentPosition = 0;
+
+nextButton.addEventListener("click", () => {
+  currentPosition -= cardWidth;
+  updatePosition();
+});
+
+prevButton.addEventListener("click", () => {
+  currentPosition += cardWidth;
+  updatePosition();
+});
+
+function updatePosition() {
+  const maxPosition = (cardsContainer.offsetWidth - document.querySelector(".slide-box").offsetWidth) * -1;
+  currentPosition = Math.max(currentPosition, maxPosition);
+  currentPosition = Math.min(currentPosition, 0);
+  cardsContainer.style.transform = `translateX(${currentPosition}px)`;
+}
+		function renderTime(){
+
+    // Date
+    var mydate = new Date();
+    var year = mydate.getYear();
+        
+		
+		if(year < 1000){
+            year +=1900;
+        }
+    var day = mydate.getDay();
+    var month = mydate.getMonth();
+    var daym = mydate.getDate();
+    var dayarray = new Array("Sunday,","Monday,","Tuesday,","Wednesday,","Thursday,","Friday,","Saturday,");
+    var montharray = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+    //Date End
+	
+	// span
+	const span = document.createElement('span');
+    //Time
+    var currentTime = new Date();
+    var h = currentTime.getHours();
+    var m = currentTime.getMinutes();
+    var s = currentTime.getSeconds();
+        if(h == 24){
+            h = 0;
+        } else if(h > 12){
+            h = h - 0;
+        }
+
+        if(h < 10){
+            h = "0" + h;
+        }
+
+        if(m < 10){
+            m = "0" + m;
+        }
+
+        if(s < 10){
+            s = "0" + s;
+        }
+		
+        var myClock = document.getElementById("clockDisplay");
+        myClock.textContent = "" +dayarray[day] + " " +daym+ " " +montharray[month]+ " " +year+ " | " +h+ ":" +m+ ":" +s;
+        myClock.innerText = "" +dayarray[day]+ " " +daym+ " " +montharray[month]+ " " +year+ " | " +h+ ":" +m+ ":" +s;
+
+        setTimeout("renderTime()", 1000);
+		
+		
+
+}
+renderTime();
+	</script>
+	</body>
+</html>
